@@ -1,0 +1,23 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card bg-dark">
+        <div class="card-body">
+          <form action="/updateHospital/<%= Hospital.roomNum %>" method="POST">
+            <input type="text" name="Type" value="<%= Hospital.Type %>" placeholder="Type" class="form-control mb-3"
+              autofocus />
+            <input type="text" name="rPrice" value="<%= Hospital.rPrice%>" placeholder="Room price"
+              class="form-control mb-3" />
+            <input type="text" name="days" value="<%= Hospital.days%>" placeholder="Days" class="form-control mb-3" />
+            <input type="text" name="patientId" value="<%= Hospital.patientId%>" placeholder="Pateint Id"
+              class="form-control mb-3" />
+
+            <button type="submit" class="btn btn-primary">save room</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/_footer") %>

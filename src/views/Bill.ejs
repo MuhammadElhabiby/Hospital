@@ -1,0 +1,58 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7">
+        <table class="table table-dark table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Patient Id</td>
+              <td>Bill</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (bills) { %>
+              <% for(var i=0; i < bills.length; i++) { %>
+                <tr>
+                  <td>
+                    <%= bills[i].billId %>
+                  </td>
+                  <td>
+                    <%= bills[i].patientId %>
+                  </td>
+                  <td>
+                    <%= bills[i].bill %>
+                  </td>
+                  <td class="d-flex gap-2">
+                    <a href="/updateBill/<%= bills[i].billId %>" class="btn btn-info">
+                      Edit
+                    </a>
+                    <a href="/deleteBill/<%= bills[i].billId %>" class="btn btn-danger">
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <% } %>
+                  <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card-body">
+          <form action="/addBill" method="POST">
+            <input type="text" name="patientId" placeholder="Patient Id" class="form-control mb-2" autofocus />
+            <input type="text" name="bill" placeholder="Bill" class="form-control mb-2" />
+
+            <button type="submit" class="btn btn-info">Add Bill</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include("partials/_footer") %>

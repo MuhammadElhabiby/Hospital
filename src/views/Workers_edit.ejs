@@ -1,0 +1,23 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card bg-dark">
+        <div class="card-body">
+          <form action="/updateWorkers/<%= Workers.workerId %>" method="POST">
+            <input type="text" name="workerFirstName" value="<%= Workers.workerFirstName %>" placeholder="First Name"
+              class="form-control mb-3" autofocus />
+            <input type="text" name="workerLastName" value="<%= Workers.workerLastName%>" placeholder="Last Name"
+              class="form-control mb-3" />
+            <input type="text" name="type" value="<%= Workers.type%>" placeholder="Type" class="form-control mb-3" />
+            <input type="text" name="roomNum" value="<%= Workers.roomNum%>" placeholder="Room number"
+              class="form-control mb-3" />
+
+            <button type="submit" class="btn btn-primary">save worker</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/_footer") %>

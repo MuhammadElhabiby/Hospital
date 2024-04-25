@@ -1,0 +1,69 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7">
+        <table class="table table-dark table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Type</td>
+              <td>Price</td>
+              <td>Days</td>
+              <td>Pateint Id</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (hospitals) { %>
+              <% for(var i=0; i < hospitals.length; i++) { %>
+                <tr>
+                  <td>
+                    <%= hospitals[i].roomNum %>
+                  </td>
+                  <td>
+                    <%= hospitals[i].Type %>
+                  </td>
+                  <td>
+                    <%= hospitals[i].rPrice %>
+                  </td>
+                  <td>
+                    <%= hospitals[i].days %>
+                  </td>
+                  <td>
+                    <%= hospitals[i].patientId %>
+                  </td>
+
+                  <td class="d-flex gap-2">
+                    <a href="/updateHospital/<%= hospitals[i].roomNum %>" class="btn btn-info">
+                      Edit
+                    </a>
+                    <a href="/deleteHospital/<%= hospitals[i].roomNum %>" class="btn btn-danger">
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <% } %>
+                  <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card-body">
+          <form action="/addHospital" method="POST">
+            <input type="text" name="Type" placeholder="Type" class="form-control mb-2" autofocus />
+            <input type="text" name="rPrice" placeholder="Room price" class="form-control mb-2" />
+            <input type="text" name="days" placeholder="Days" class="form-control mb-2" />
+            <input type="text" name="patientId" placeholder="Patient Id" class="form-control mb-2" />
+
+            <button type="submit" class="btn btn-info">Add Room</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include("partials/_footer") %>

@@ -1,0 +1,59 @@
+<%- include("partials/_header") %>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7">
+        <table class="table table-dark table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Name</td>
+              <td>Price</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (Treatments) { %>
+              <% for(var i=0; i < Treatments.length; i++) { %>
+                <tr>
+                  <td>
+                    <%= Treatments[i].treatmentId %>
+                  </td>
+                  <td>
+                    <%= Treatments[i].treatmentName %>
+                  </td>
+                  <td>
+                    <%= Treatments[i].tPrice %>
+                  </td>
+
+                  <td class="d-flex gap-2">
+                    <a href="/updateTreatment/<%= Treatments[i].treatmentId %>" class="btn btn-info">
+                      Edit
+                    </a>
+                    <a href="/deleteTreatment/<%= Treatments[i].treatmentId %>" class="btn btn-danger">
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <% } %>
+                  <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card-body">
+          <form action="/addTreatment" method="POST">
+            <input type="text" name="treatmentName" placeholder="Name" class="form-control mb-2" autofocus />
+            <input type="text" name="tPrice" placeholder="Price" class="form-control mb-2" />
+
+            <button type="submit" class="btn btn-info">Add Treatment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include("partials/_footer") %>
