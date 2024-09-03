@@ -29,23 +29,23 @@ This repository contains a Hospital Management System project, which is designed
    ```bash
    git clone https://github.com/MuhammadElhabiby/Hospital.git
    cd Hospital
-   ´´´
+   
 2. Install the necessary dependencies.
    ```bash
    npm install
-   ´´´
+   
 3. Set up the database by configuring your settings and running the migration scripts to create the necessary schema
    ```bash
    npm run migrate
-   ´´´
+   
 4. Start the application.
    ```bash
    npm start
-   ´´´
+   
 5. Access the application in your web browser
     ```arduino
    http://localhost:3000
-   ´´´
+   
 
 ## Technologies Used
 
